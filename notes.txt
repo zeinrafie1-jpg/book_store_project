@@ -1,0 +1,7 @@
+scp -r -i ~/.ssh/zein-ec2-keypair.pem \
+    *.py requirements.txt Dockerfile seeds templates lib static \
+    ec2-user@13.40.134.48:~/book_store
+
+ssh -i ~/.ssh/zein-ec2-keypair.pem ec2-user@13.40.134.48
+
+http://13.40.134.48:5001

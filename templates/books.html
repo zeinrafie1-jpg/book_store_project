@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            h1 {
+                text-align: center;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+            }
+            .book-item {
+                text-align: center;
+                width: 150px;
+            }
+            img {
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 5px;
+                width: 150px;
+            }
+            img:hover {
+                box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>My Books</h1>
+        <div class="row">
+            {% for book in books %}
+            <div class="book-item">
+                <img src="https://media.istockphoto.com/id/1620759890/vector/creative-black-open-book-icon-vector-design.jpg?s=612x612&w=0&k=20&c=UVl8nxE4MCgJgMmC5nMhxxh0QJf1H2L2vU503ve1omM=">
+                <h3>{{ book.title }} by {{ book.author }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+        <form method="POST" action="/books">
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="author" placeholder="Author">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
